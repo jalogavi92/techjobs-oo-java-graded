@@ -23,8 +23,12 @@ public class JobTest {
     }
     @Test
     public void testJobConstructorSetsAllFields() {
-        Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
-                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob3 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+
         //turn into false
         assertTrue(testJob3.getName() instanceof String);
         assertTrue(testJob3.getEmployer() instanceof Employer);
@@ -38,7 +42,7 @@ public class JobTest {
         assertEquals("Quality control", testJob3.getPositionType().getValue());
         assertEquals("Persistence", testJob3.getCoreCompetency().getValue());
     }
-
+//Generate two Job objects that have identical field values EXCEPT for id. Test that equals returns false.
     @Test
     public void testJobsForEquality() {
         Job testJob3 = new Job("Product tester",
@@ -54,5 +58,26 @@ public class JobTest {
         assertNotEquals(testJob3, testJob4);
 
     }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testJob3 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertEquals('\n',testJob3.toString().charAt(0));
+        assertEquals('\n', testJob3.toString().charAt(testJob3.toString().length() - 1));
+    }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job testJob4 =
+                new Job("Product tester",
+                        new Employer("ACME"),
+                        new Location("Desert"),
+                        new PositionType("Quality control"),
+                        new CoreCompetency("Persistence"));
+        assertEquals("\nID: " + testJob4.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n" , testJob4.toString());
+
+    }
     }
