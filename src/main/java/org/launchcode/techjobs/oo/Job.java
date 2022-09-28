@@ -100,4 +100,8 @@ public class Job {
         return id;
     }
 
+    public Job(int id) {
+        this.id = id;
+    }
 }
+
