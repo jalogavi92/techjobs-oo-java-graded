@@ -2,67 +2,73 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class PositionType {
+public class PositionType extends JobField  {
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
-    public PositionType() {
-        id = nextId;
-        nextId++;
-    }
 
     public PositionType(String value) {
-        this();
-        this.value = value;
+        super(value);
+
     }
 
-    // TODO: Add a custom toString() method that returns the data stored in 'value'.
-
-    @Override
-    public String toString() {
-        return "PositionType{" +
-                "value='" + value + '\'' +
-                '}';
-    }
-
-
-    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PositionType that = (PositionType) o;
-        //return id == that.id && value.equals(that.value);
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode() {
-       // return Objects.hash(id, value);
-        return Objects.hash(id);
-    }
-
-
-    //  their id fields match.
-
-    // Getters and Setters:
-
-    public int getId() {
-
-        return id;
-    }
-
-    public String getValue() {
-//flase
-        return value;
-    }
-
-    public void setValue(String value) {
-
-        this.value = value;
-    }
+//    private int id;
+//    private static int nextId = 1;
+//    private String value;
+//
+//    public PositionType() {
+//        id = nextId;
+//        nextId++;
+//    }
+//
+//    public PositionType(String value) {
+//        this();
+//        this.value = value;
+//    }
+//
+//    // TODO: Add a custom toString() method that returns the data stored in 'value'.
+//
+//    @Override
+//    public String toString() {
+//        return "PositionType{" +
+//                "value='" + value + '\'' +
+//                '}';
+//    }
+//
+//
+//    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        PositionType that = (PositionType) o;
+//        //return id == that.id && value.equals(that.value);
+//        return id == that.id;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//       // return Objects.hash(id, value);
+//        return Objects.hash(id);
+//    }
+//
+//
+//    //  their id fields match.
+//
+//    // Getters and Setters:
+//
+//    public int getId() {
+//
+//        return id;
+//    }
+//
+//    public String getValue() {
+////flase
+//        return value;
+//    }
+//
+//    public void setValue(String value) {
+//
+//        this.value = value;
+//    }
 
 }
