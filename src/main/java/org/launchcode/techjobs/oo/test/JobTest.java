@@ -1,14 +1,16 @@
 package org.launchcode.techjobs.oo.test;
 
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
-import static org.junit.Assert.*;
-
+// import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 /**
  * Created by LaunchCode
  */
@@ -31,11 +33,11 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields(){
-        assertTrue(job1.getEmployer() instanceof Employer);
-        assertTrue(job1 instanceof Job);
-        assertTrue(job1.getLocation() instanceof Location);
-        assertTrue(job1.getPositionType() instanceof PositionType);
-        assertTrue(job1.getCoreCompetency() instanceof CoreCompetency);
+//        assertTrue(job1.getEmployer() instanceof Employer);
+//        assertTrue(job1 instanceof Job);
+//        assertTrue(job1.getLocation() instanceof Location);
+//        assertTrue(job1.getPositionType() instanceof PositionType);
+//        assertTrue(job1.getCoreCompetency() instanceof CoreCompetency);
         assertEquals("ACME", job1.getEmployer().getValue());
         assertEquals("Product tester", job1.getName());
         assertEquals("Desert", job1.getLocation().getValue());
@@ -45,17 +47,24 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality(){
-        Job jobOne = new Job();
-        Job jobTwo = new Job();
+        Job job1 = new Job();
+        Job job2 = new Job();
 
-        assertFalse(jobOne.equals(jobTwo));
+        assertFalse(job1.equals(job2));
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        assertEquals('\n', job1.toString().charAt(0));
-        assertEquals('\n', job1.toString().charAt(job1.toString().length()-1));
-
+//        assertEquals('\n', job1.toString().charAt(0));
+//        assertEquals('\n', job1.toString().charAt(job1.toString().length()-1));
+        Job testJob3 =
+                new Job("Product tester",
+                        new Employer("ACME"),
+                        new Location("Desert"),
+                        new PositionType("Quality control"),
+                        new CoreCompetency("Persistence"));
+        assertEquals('\n',testJob3.toString().charAt(0));
+        assertEquals('\n', testJob3.toString().charAt(testJob3.toString().length() - 1));
     }
 
     @Test
@@ -72,7 +81,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job blankJob = new Job();
+        Job blankJob = new Job("",new Employer(""), new Location(""),new PositionType(""),new CoreCompetency(""));
         String expected = "\nID: " + blankJob.getId() + '\n' +
                 "Name: Data not available" + '\n' +
                 "Employer: Data not available" + '\n' +
